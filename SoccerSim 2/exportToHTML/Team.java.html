@@ -1,0 +1,324 @@
+<html>
+<head>
+<title>Team.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Team.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Team </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Player</span><span class="s2">&gt; </span><span class="s1">players </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Player</span><span class="s2">&gt;();</span>
+    <span class="s0">private </span><span class="s1">String teamName</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player gk</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player def1</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player def2</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player def3</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player def4</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player mid1</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player mid2</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player mid3</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player atk1</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player atk2</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Player atk3</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">defovr</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">midovr</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">atkovr</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">gkovr</span><span class="s2">;</span>
+    <span class="s0">private double </span><span class="s1">xg</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">Team</span><span class="s2">(</span><span class="s1">String n</span><span class="s2">) {</span>
+        <span class="s1">teamName </span><span class="s2">= </span><span class="s1">n</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setXG</span><span class="s2">(</span><span class="s0">double </span><span class="s1">xg</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">xg </span><span class="s2">= </span><span class="s1">xg</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public double </span><span class="s1">getXG</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">xg</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">calcDefOVR</span><span class="s2">() {</span>
+        <span class="s1">defovr </span><span class="s2">= (</span><span class="s1">def1</span><span class="s2">.</span><span class="s1">getDef</span><span class="s2">() + </span><span class="s1">def2</span><span class="s2">.</span><span class="s1">getDef</span><span class="s2">() + </span><span class="s1">def3</span><span class="s2">.</span><span class="s1">getDef</span><span class="s2">() + </span><span class="s1">def4</span><span class="s2">.</span><span class="s1">getDef</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">defovr</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">calcMidOVR</span><span class="s2">() {</span>
+        <span class="s1">midovr </span><span class="s2">= (</span><span class="s1">mid1</span><span class="s2">.</span><span class="s1">getMid</span><span class="s2">() + </span><span class="s1">mid2</span><span class="s2">.</span><span class="s1">getMid</span><span class="s2">() + </span><span class="s1">mid3</span><span class="s2">.</span><span class="s1">getMid</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">midovr</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">calcAtkOVR</span><span class="s2">() {</span>
+        <span class="s1">atkovr </span><span class="s2">= (</span><span class="s1">atk1</span><span class="s2">.</span><span class="s1">getAtk</span><span class="s2">() + </span><span class="s1">atk2</span><span class="s2">.</span><span class="s1">getAtk</span><span class="s2">() + </span><span class="s1">atk3</span><span class="s2">.</span><span class="s1">getAtk</span><span class="s2">());</span>
+        <span class="s0">return </span><span class="s1">atkovr</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">calcGkOVR</span><span class="s2">() {</span>
+        <span class="s1">gkovr </span><span class="s2">= </span><span class="s1">gk</span><span class="s2">.</span><span class="s1">getGk</span><span class="s2">();</span>
+        <span class="s0">return </span><span class="s1">gkovr</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+
+
+    <span class="s0">public </span><span class="s1">Team</span><span class="s2">(</span><span class="s1">String n</span><span class="s2">, </span><span class="s1">Player g</span><span class="s2">, </span><span class="s1">Player d1</span><span class="s2">, </span><span class="s1">Player d2</span><span class="s2">, </span><span class="s1">Player d3</span><span class="s2">, </span><span class="s1">Player d4</span><span class="s2">, </span><span class="s1">Player m1</span><span class="s2">, </span><span class="s1">Player m2</span><span class="s2">, </span><span class="s1">Player m3</span><span class="s2">, </span><span class="s1">Player a1</span><span class="s2">, </span><span class="s1">Player a2</span><span class="s2">, </span><span class="s1">Player a3</span><span class="s2">) {</span>
+        <span class="s1">teamName </span><span class="s2">= </span><span class="s1">n</span><span class="s2">;</span>
+        <span class="s1">gk </span><span class="s2">= </span><span class="s1">g</span><span class="s2">;</span>
+        <span class="s1">def1 </span><span class="s2">= </span><span class="s1">d1</span><span class="s2">;</span>
+        <span class="s1">def2 </span><span class="s2">= </span><span class="s1">d2</span><span class="s2">;</span>
+        <span class="s1">def3 </span><span class="s2">= </span><span class="s1">d3</span><span class="s2">;</span>
+        <span class="s1">def4 </span><span class="s2">= </span><span class="s1">d4</span><span class="s2">;</span>
+        <span class="s1">mid1 </span><span class="s2">= </span><span class="s1">m1</span><span class="s2">;</span>
+        <span class="s1">mid2 </span><span class="s2">= </span><span class="s1">m2</span><span class="s2">;</span>
+        <span class="s1">mid3 </span><span class="s2">= </span><span class="s1">m3</span><span class="s2">;</span>
+        <span class="s1">atk1 </span><span class="s2">= </span><span class="s1">a1</span><span class="s2">;</span>
+        <span class="s1">atk2 </span><span class="s2">= </span><span class="s1">a2</span><span class="s2">;</span>
+        <span class="s1">atk3 </span><span class="s2">= </span><span class="s1">a3</span><span class="s2">;</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">gk</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">def1</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">def2</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">def3</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">def4</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">mid1</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">mid2</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">mid3</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">atk1</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">atk2</span><span class="s2">);</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">atk3</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Player</span><span class="s2">&gt; </span><span class="s1">getPlayers</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">players</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getName</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">teamName</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">print</span><span class="s2">() {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Player p </span><span class="s2">: </span><span class="s1">players</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Name: &quot; </span><span class="s2">+ </span><span class="s1">p</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">() + </span><span class="s3">&quot;, OVR: &quot; </span><span class="s2">+ </span><span class="s1">p</span><span class="s2">.</span><span class="s1">getOvr</span><span class="s2">());</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+    <span class="s0">private void </span><span class="s1">updatePlayerList</span><span class="s2">() {</span>
+        <span class="s1">players</span><span class="s2">.</span><span class="s1">clear</span><span class="s2">();</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">gk </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">gk</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">def1 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">def1</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">def2 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">def2</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">def3 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">def3</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">def4 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">def4</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">mid1 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">mid1</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">mid2 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">mid2</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">mid3 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">mid3</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">atk1 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">atk1</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">atk2 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">atk2</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">atk3 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">players</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">atk3</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String removePlayer</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">, </span><span class="s0">int </span><span class="s1">ovr</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">players</span><span class="s2">.</span><span class="s1">size</span><span class="s2">(); </span><span class="s1">i</span><span class="s2">++)</span>
+        <span class="s2">{</span>
+            <span class="s1">Player p </span><span class="s2">= </span><span class="s1">players</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Checking: &quot; </span><span class="s2">+ </span><span class="s1">p</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">() + </span><span class="s3">&quot; (&quot; </span><span class="s2">+ </span><span class="s1">p</span><span class="s2">.</span><span class="s1">getOvr</span><span class="s2">() + </span><span class="s3">&quot;) vs &quot; </span><span class="s2">+ </span><span class="s1">name </span><span class="s2">+ </span><span class="s3">&quot; (&quot; </span><span class="s2">+ </span><span class="s1">ovr </span><span class="s2">+ </span><span class="s3">&quot;)&quot;</span><span class="s2">);</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">p</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">().</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s1">name</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">()) &amp;&amp; </span><span class="s1">p</span><span class="s2">.</span><span class="s1">getOvr</span><span class="s2">() == </span><span class="s1">ovr</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">gk</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">gk </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">def1</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">def1 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">def2</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">def2 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">def3</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">def3 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">def4</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">def4 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">mid1</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">mid1 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">mid2</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">mid2 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">mid3</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">mid3 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">atk1</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">atk1 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">atk2</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">atk2 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">p </span><span class="s2">== </span><span class="s1">atk3</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">atk3 </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s1">updatePlayerList</span><span class="s2">();</span>
+                <span class="s0">return </span><span class="s3">&quot;Player Found and Removed&quot;</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s0">return </span><span class="s3">&quot;No Player Found; </span><span class="s0">\n</span><span class="s3">Check OVR and Name&quot;</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+
+    <span class="s0">public </span><span class="s1">String addPlayer</span><span class="s2">(</span><span class="s1">Player p</span><span class="s2">, </span><span class="s1">String pos</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">pos</span><span class="s2">.</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s3">&quot;DEF&quot;</span><span class="s2">))</span>
+        <span class="s2">{</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">def1 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">def1 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">def2 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">def2 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">def3 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">def3 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">def4 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">def4 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s0">return </span><span class="s3">&quot;All DEF positions are filled&quot;</span><span class="s2">;</span>
+            <span class="s2">}</span>
+
+            <span class="s1">updatePlayerList</span><span class="s2">();</span>
+            <span class="s0">return </span><span class="s3">&quot;Player Added&quot;</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">pos</span><span class="s2">.</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s3">&quot;MID&quot;</span><span class="s2">))</span>
+        <span class="s2">{</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">mid1 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">mid1 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">mid2 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">mid2 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">mid3 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">mid3 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s0">return </span><span class="s3">&quot;All MID positions are filled&quot;</span><span class="s2">;</span>
+            <span class="s2">}</span>
+
+            <span class="s1">updatePlayerList</span><span class="s2">();</span>
+            <span class="s0">return </span><span class="s3">&quot;Player Added&quot;</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">pos</span><span class="s2">.</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s3">&quot;ATK&quot;</span><span class="s2">))</span>
+        <span class="s2">{</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">atk1 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">atk1 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">atk2 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">atk2 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">atk3 </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">atk3 </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s0">return </span><span class="s3">&quot;All ATK positions are filled&quot;</span><span class="s2">;</span>
+            <span class="s2">}</span>
+
+            <span class="s1">updatePlayerList</span><span class="s2">();</span>
+            <span class="s0">return </span><span class="s3">&quot;Player Added&quot;</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">pos</span><span class="s2">.</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s3">&quot;GK&quot;</span><span class="s2">))</span>
+        <span class="s2">{</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">gk </span><span class="s2">== </span><span class="s0">null</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">gk </span><span class="s2">= </span><span class="s1">p</span><span class="s2">;</span>
+                <span class="s1">updatePlayerList</span><span class="s2">();</span>
+                <span class="s0">return </span><span class="s3">&quot;Player Added&quot;</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">gk</span><span class="s2">);</span>
+                <span class="s0">return </span><span class="s3">&quot;Can't add GK. Reason- Slot Filled.&quot;</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s0">return </span><span class="s3">&quot;Unable to add player&quot;</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public boolean </span><span class="s1">isFull</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s2">(</span><span class="s1">gk </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">def1 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">def2 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">def3 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">def4 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">mid1 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">mid2 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">mid3 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">atk1 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">atk2 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) &amp;&amp; (</span><span class="s1">atk3 </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

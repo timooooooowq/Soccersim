@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>Player.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Player.java</font>
+</center></td></tr></table>
+<pre><span class="s0">public class </span><span class="s1">Player </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">String name</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String club</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String sugPos</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String nationality</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">age</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">atk</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">def</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">mid</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">ovr</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">gk</span><span class="s2">;</span>
+    <span class="s0">public </span><span class="s1">Player</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s1">club </span><span class="s2">= </span><span class="s3">&quot;&quot;</span><span class="s2">;</span>
+        <span class="s1">sugPos </span><span class="s2">= </span><span class="s3">&quot;&quot;</span><span class="s2">;</span>
+        <span class="s1">nationality </span><span class="s2">= </span><span class="s3">&quot;&quot;</span><span class="s2">;</span>
+        <span class="s1">age </span><span class="s2">= </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s1">atk </span><span class="s2">= </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s1">def </span><span class="s2">= </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s1">mid </span><span class="s2">= </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s1">ovr </span><span class="s2">= </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s1">gk </span><span class="s2">= </span><span class="s4">0</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public </span><span class="s1">Player </span><span class="s2">(</span><span class="s1">String c</span><span class="s2">, </span><span class="s1">String n</span><span class="s2">, </span><span class="s1">String sug</span><span class="s2">, </span><span class="s0">int </span><span class="s1">ag</span><span class="s2">, </span><span class="s1">String nat</span><span class="s2">, </span><span class="s0">int </span><span class="s1">a</span><span class="s2">, </span><span class="s0">int </span><span class="s1">m</span><span class="s2">, </span><span class="s0">int </span><span class="s1">d</span><span class="s2">, </span><span class="s0">int </span><span class="s1">g</span><span class="s2">, </span><span class="s0">int </span><span class="s1">o</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">club </span><span class="s2">= </span><span class="s1">c</span><span class="s2">;</span>
+        <span class="s1">name </span><span class="s2">= </span><span class="s1">n</span><span class="s2">;</span>
+        <span class="s1">sugPos </span><span class="s2">= </span><span class="s1">sug</span><span class="s2">.</span><span class="s1">toUpperCase</span><span class="s2">();</span>
+        <span class="s1">nationality </span><span class="s2">= </span><span class="s1">nat</span><span class="s2">;</span>
+        <span class="s1">age </span><span class="s2">= </span><span class="s1">ag</span><span class="s2">;</span>
+        <span class="s1">atk </span><span class="s2">= </span><span class="s1">a</span><span class="s2">;</span>
+        <span class="s1">def </span><span class="s2">= </span><span class="s1">d</span><span class="s2">;</span>
+        <span class="s1">mid </span><span class="s2">= </span><span class="s1">m</span><span class="s2">;</span>
+        <span class="s1">ovr </span><span class="s2">= </span><span class="s1">o</span><span class="s2">;</span>
+        <span class="s1">gk </span><span class="s2">= </span><span class="s1">g</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s5">// SETTER METHODS   SETTER METHODS   SETTER METHODS   SETTER METHODS</span>
+    <span class="s0">private void </span><span class="s1">setClub</span><span class="s2">(</span><span class="s1">String c</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">club </span><span class="s2">= </span><span class="s1">c</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">setName</span><span class="s2">(</span><span class="s1">String n</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">name </span><span class="s2">= </span><span class="s1">n</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">setSugPos</span><span class="s2">(</span><span class="s1">String s</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">sugPos </span><span class="s2">= </span><span class="s1">s</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">setNationality</span><span class="s2">(</span><span class="s1">String n</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">nationality </span><span class="s2">= </span><span class="s1">n</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">setAge</span><span class="s2">(</span><span class="s0">int </span><span class="s1">a</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">age </span><span class="s2">= </span><span class="s1">a</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">setAtk</span><span class="s2">(</span><span class="s0">int </span><span class="s1">a</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">atk </span><span class="s2">= </span><span class="s1">a</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String print</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s3">&quot;[Club: &quot; </span><span class="s2">+ </span><span class="s1">club </span><span class="s2">+ </span><span class="s3">&quot;, Name: &quot; </span><span class="s2">+ </span><span class="s1">name </span><span class="s2">+ </span><span class="s3">&quot;, Position: &quot; </span><span class="s2">+ </span><span class="s1">sugPos </span><span class="s2">+ </span><span class="s3">&quot;, Age: &quot; </span><span class="s2">+ </span><span class="s1">age </span><span class="s2">+ </span><span class="s3">&quot;, Nationality: &quot; </span><span class="s2">+ </span><span class="s1">nationality </span><span class="s2">+ </span><span class="s3">&quot;, ATK: &quot; </span><span class="s2">+ </span><span class="s1">atk </span><span class="s2">+ </span><span class="s3">&quot;, DEF: &quot; </span><span class="s2">+ </span><span class="s1">def </span><span class="s2">+ </span><span class="s3">&quot;, MID: &quot; </span><span class="s2">+ </span><span class="s1">mid </span><span class="s2">+ </span><span class="s3">&quot;, GK: &quot; </span><span class="s2">+ </span><span class="s1">gk </span><span class="s2">+ </span><span class="s3">&quot;, OVR: &quot; </span><span class="s2">+ </span><span class="s1">ovr </span><span class="s2">+ </span><span class="s3">&quot;]&quot;</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">setDef</span><span class="s2">(</span><span class="s0">int </span><span class="s1">d</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">def </span><span class="s2">= </span><span class="s1">d</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">private void </span><span class="s1">setMid</span><span class="s2">(</span><span class="s0">int </span><span class="s1">m</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">mid </span><span class="s2">= </span><span class="s1">m</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">private void </span><span class="s1">setOvr</span><span class="s2">(</span><span class="s0">int </span><span class="s1">o</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">ovr </span><span class="s2">= </span><span class="s1">o</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">private  void </span><span class="s1">setGk</span><span class="s2">(</span><span class="s0">int </span><span class="s1">g</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">gk </span><span class="s2">= </span><span class="s1">g</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s5">// GETTER METHODS   GETTER METHODS   GETTER METHODS   GETTER METHODS</span>
+    <span class="s0">public  </span><span class="s1">String getClub</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">club</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public  </span><span class="s1">String getName</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">name</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public  </span><span class="s1">String getSugPos</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">sugPos</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public  </span><span class="s1">String getNationality</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">nationality</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public  int </span><span class="s1">getAge</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">age</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public  int </span><span class="s1">getAtk</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">atk</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public  int </span><span class="s1">getDef</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">def</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public  int </span><span class="s1">getMid</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">mid</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public  int </span><span class="s1">getOvr</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">ovr</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public int </span><span class="s1">getGk</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">gk</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

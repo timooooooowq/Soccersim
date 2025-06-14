@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Match.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Match.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Random</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Match </span><span class="s2">{</span>
+    <span class="s0">public </span><span class="s1">Team team1</span><span class="s2">;</span>
+    <span class="s0">public </span><span class="s1">Team team2</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">teamOneAtk</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">teamTwoAtk</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">teamOneMid</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">teamTwoMid</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">teamOneDef</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">teamTwoDef</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">teamOneGk</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">teamTwoGk</span><span class="s2">;</span>
+    <span class="s0">private double </span><span class="s1">team1xg</span><span class="s2">;</span>
+    <span class="s0">private double </span><span class="s1">team2xg</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">Match</span><span class="s2">(</span><span class="s1">Team t1</span><span class="s2">, </span><span class="s1">Team t2</span><span class="s2">) {</span>
+        <span class="s1">team1 </span><span class="s2">= </span><span class="s1">t1</span><span class="s2">;</span>
+        <span class="s1">team2 </span><span class="s2">= </span><span class="s1">t2</span><span class="s2">;</span>
+        <span class="s1">values</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public double </span><span class="s1">getTeam1xg</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">team1xg</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public double </span><span class="s1">getTeam2xg</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">team2xg</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">values</span><span class="s2">() {</span>
+        <span class="s1">teamOneAtk </span><span class="s2">= </span><span class="s1">team1</span><span class="s2">.</span><span class="s1">calcAtkOVR</span><span class="s2">();</span>
+        <span class="s1">teamOneDef </span><span class="s2">= </span><span class="s1">team1</span><span class="s2">.</span><span class="s1">calcDefOVR</span><span class="s2">();</span>
+        <span class="s1">teamOneMid </span><span class="s2">= </span><span class="s1">team1</span><span class="s2">.</span><span class="s1">calcMidOVR</span><span class="s2">();</span>
+        <span class="s1">teamOneGk </span><span class="s2">= </span><span class="s1">team1</span><span class="s2">.</span><span class="s1">calcGkOVR</span><span class="s2">();</span>
+        <span class="s1">teamTwoAtk </span><span class="s2">= </span><span class="s1">team2</span><span class="s2">.</span><span class="s1">calcAtkOVR</span><span class="s2">();</span>
+        <span class="s1">teamTwoDef </span><span class="s2">= </span><span class="s1">team2</span><span class="s2">.</span><span class="s1">calcDefOVR</span><span class="s2">();</span>
+        <span class="s1">teamTwoMid </span><span class="s2">= </span><span class="s1">team2</span><span class="s2">.</span><span class="s1">calcMidOVR</span><span class="s2">();</span>
+        <span class="s1">teamTwoGk </span><span class="s2">= </span><span class="s1">team2</span><span class="s2">.</span><span class="s1">calcGkOVR</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">calculateTeamOneScore</span><span class="s2">() {</span>
+        <span class="s0">double </span><span class="s1">raw </span><span class="s2">= </span><span class="s1">Math</span><span class="s2">.</span><span class="s1">pow</span><span class="s2">((</span><span class="s1">teamOneAtk </span><span class="s2">+ </span><span class="s1">teamOneMid</span><span class="s2">) / </span><span class="s3">2.0</span><span class="s2">, </span><span class="s3">1.15</span><span class="s2">);</span>
+        <span class="s0">double </span><span class="s1">def </span><span class="s2">= </span><span class="s1">Math</span><span class="s2">.</span><span class="s1">pow</span><span class="s2">((</span><span class="s1">teamTwoDef </span><span class="s2">+ </span><span class="s1">teamTwoGk</span><span class="s2">) / </span><span class="s3">2.0</span><span class="s2">, </span><span class="s3">1.05</span><span class="s2">);</span>
+        <span class="s0">double </span><span class="s1">xG </span><span class="s2">= (</span><span class="s1">raw </span><span class="s2">/ </span><span class="s1">def</span><span class="s2">) * </span><span class="s3">1.5</span><span class="s2">;</span>
+
+        <span class="s0">double </span><span class="s1">stdDev </span><span class="s2">= </span><span class="s3">1.0</span><span class="s2">;</span>
+        <span class="s1">Random rand </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Random</span><span class="s2">();</span>
+        <span class="s0">int </span><span class="s1">value </span><span class="s2">= (</span><span class="s0">int</span><span class="s2">) (</span><span class="s1">xG </span><span class="s2">+ </span><span class="s1">stdDev </span><span class="s2">* </span><span class="s1">rand</span><span class="s2">.</span><span class="s1">nextGaussian</span><span class="s2">());</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">value </span><span class="s2">&lt; </span><span class="s3">0</span><span class="s2">) </span><span class="s1">value </span><span class="s2">= </span><span class="s3">0</span><span class="s2">;</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Team One Score: &quot; </span><span class="s2">+ </span><span class="s1">value</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;xG: &quot; </span><span class="s2">+ </span><span class="s1">xG</span><span class="s2">);</span>
+        <span class="s1">team1</span><span class="s2">.</span><span class="s1">setXG</span><span class="s2">(</span><span class="s1">xG</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">value</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">calculateTeamTwoScore</span><span class="s2">() {</span>
+        <span class="s0">double </span><span class="s1">raw </span><span class="s2">= </span><span class="s1">Math</span><span class="s2">.</span><span class="s1">pow</span><span class="s2">((</span><span class="s1">teamTwoAtk </span><span class="s2">+ </span><span class="s1">teamTwoMid</span><span class="s2">) / </span><span class="s3">2.0</span><span class="s2">, </span><span class="s3">1.15</span><span class="s2">);</span>
+        <span class="s0">double </span><span class="s1">def </span><span class="s2">= </span><span class="s1">Math</span><span class="s2">.</span><span class="s1">pow</span><span class="s2">((</span><span class="s1">teamOneDef </span><span class="s2">+ </span><span class="s1">teamOneGk</span><span class="s2">) / </span><span class="s3">2.0</span><span class="s2">, </span><span class="s3">1.05</span><span class="s2">);</span>
+        <span class="s0">double </span><span class="s1">xG </span><span class="s2">= (</span><span class="s1">raw </span><span class="s2">/ </span><span class="s1">def</span><span class="s2">) * </span><span class="s3">1.5</span><span class="s2">;</span>
+
+        <span class="s0">double </span><span class="s1">stdDev </span><span class="s2">= </span><span class="s3">1.0</span><span class="s2">;</span>
+        <span class="s1">Random rand </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Random</span><span class="s2">();</span>
+        <span class="s0">int </span><span class="s1">value </span><span class="s2">= (</span><span class="s0">int</span><span class="s2">) (</span><span class="s1">xG </span><span class="s2">+ </span><span class="s1">stdDev </span><span class="s2">* </span><span class="s1">rand</span><span class="s2">.</span><span class="s1">nextGaussian</span><span class="s2">());</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">value </span><span class="s2">&lt; </span><span class="s3">0</span><span class="s2">) </span><span class="s1">value </span><span class="s2">= </span><span class="s3">0</span><span class="s2">;</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Team Two Score: &quot; </span><span class="s2">+ </span><span class="s1">value</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;xG: &quot; </span><span class="s2">+ </span><span class="s1">xG</span><span class="s2">);</span>
+        <span class="s1">team2</span><span class="s2">.</span><span class="s1">setXG</span><span class="s2">(</span><span class="s1">xG</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">value</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
